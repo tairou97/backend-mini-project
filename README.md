@@ -1,6 +1,4 @@
-# backend-mini-project
-
-*# Bookshelf API
+# Bookshelf API
 
 ## Phase 1: Planning and Design
 
@@ -124,4 +122,3 @@ Tasks:
 * Code Reviews: Review a peer's code and provide feedback on quality and improvement.
 
 * Continuous Integration: Set up a CI/CD pipeline for automated testing and deployment.
-**
