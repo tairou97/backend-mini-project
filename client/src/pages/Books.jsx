@@ -7,7 +7,7 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/books");
+        const response = await axios.get(`URL${books}`);
         setBooks(response.data);
         console.log(response.data);
       } catch (error) {
