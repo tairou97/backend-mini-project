@@ -33,12 +33,11 @@ const Books = () => {
       <h1 className="text-green-700 flex justify-center z-10  font-bold font-sans text-3xl fixed w-full bg-slate-900 px-5 py-5 top-0">
         Book Shop
       </h1>
-      <div className="books-card p-4 relative top-28 z-0">
+      <div className="books-card p-4 relative top-28 z-0 ">
         {books.map((book) => (
-          <div key={book._id} className="card    ">
-            <div className=" ">
-              {" "}
-              <img className=" card-img  " src={book.cover} alt={book.title} />
+          <div key={book._id} className="card  ">
+            <div className=" card-img">
+              <img style={{}} src={book.cover} alt={book.title} />
             </div>
 
             <div className=" font-bold">
@@ -68,7 +67,7 @@ const Books = () => {
           </div>
         ))}
       </div>
-      <button className="  px-5 rounded-md  py-3 text-green-700 bg-slate-900 fixed bottom-0 font-bold">
+      <button className="add  px-10 rounded-md  py-3  text-green-700 bg-slate-900 fixed bottom-0 font-bold right-28 ">
         <Link to="/add">Add new Book</Link>
       </button>
     </div>
