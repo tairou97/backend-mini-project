@@ -40,7 +40,7 @@ const Books = () => {
               <img style={{}} src={book.cover} alt={book.title} />
             </div>
 
-            <div className=" font-bold">
+            <div className=" font-bold text-green-700">
               <h2>{book.title}</h2>
             </div>
 
