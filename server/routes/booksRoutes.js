@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 import Books from "../model/Books.js";
 import bodyParser from "body-parser";
 
@@ -16,30 +15,30 @@ router
     }
   })
   .post("/", async (req, res) => {
-    const books = await Books.create({
-      title: req.body.title, // title is the key in the request body
-      author: req.body.author,
-      ISBN: req.body.ISBN,
-      cover: req.body.cover,
-      publication_year: req.body.publication_year,
-      created_at: req.body.created_at,
-      updated_at: req.body.updated_at,
-      page: req.body.page,
-    });
-    const result = books;
+    const {
+      title,
+      author,
+      ISBN,
+      cover,
+      publication_year,
+      created_at,
+      updated_at,
+      page,
+    } = req.body;
     try {
-      const response = {
-        title: result.title, // title is the key in the request body
-        author: result.author,
-        ISBN: result.ISBN,
-        cover: result.cover,
-        publication_year: result.publication_year,
-        created_at: result.created_at,
-        updated_at: result.updated_at,
-        page: result.page,
-      };
-      res.send(response);
-      console.log(response);
+      const books = await Books.create({
+        title: title, // title is the key in the request body
+        author: author,
+        ISBN: ISBN,
+        cover: cover,
+        publication_year: publication_year,
+        created_at: created_at,
+        updated_at: updated_at,
+        page: page,
+      });
+
+      res.send(books);
+      console.log(books);
     } catch (error) {
       res.send(error);
     }
@@ -68,15 +67,25 @@ router
     // Logik zum Aktualisieren von Buchinformationen
     try {
       const booksID = req.params.id;
+      const {
+        title,
+        author,
+        ISBN,
+        cover,
+        publication_year,
+        created_at,
+        updated_at,
+        page,
+      } = req.body;
       const result = await Books.findByIdAndUpdate(booksID, {
-        title: req.body.title, // title is the key in the request body
-        author: req.body.author,
-        ISBN: req.body.ISBN,
-        cover: req.body.cover,
-        publication_year: req.body.publication_year,
-        created_at: req.body.created_at,
-        updated_at: req.body.updated_at,
-        page: req.body.page,
+        title: title, // title is the key in the request body
+        author: author,
+        ISBN: ISBN,
+        cover: cover,
+        publication_year: publication_year,
+        created_at: created_at,
+        updated_at: updated_at,
+        page: page,
       });
       res.send(result);
     } catch (error) {

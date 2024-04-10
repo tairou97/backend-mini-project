@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 const Books = () => {
-  const [books, setBooks] = React.useState([]);
+  const [books, setBooks] = useState([]);
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -28,108 +29,47 @@ const Books = () => {
   };
 
   return (
-    <div>
-      <h1>Book Shop</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-
-          gap: "10px",
-        }}
-      >
+    <div className="">
+      <h1 className="text-green-700 flex justify-center z-10  font-bold font-sans text-3xl fixed w-full bg-slate-900 px-5 py-5 top-0">
+        Book Shop
+      </h1>
+      <div className="books-card p-4 relative top-28 z-0">
         {books.map((book) => (
-          <div
-            key={book._id}
-            style={{
-              maxWidth: "200px",
-              height: "550px",
-            }}
-          >
-            <img
-              style={{
-                maxWidth: "200px",
-                height: "300px",
-                borderRadius: "5px",
-              }}
-              src={book.cover}
-              alt={book.title}
-            />
-            <div
-              style={{
-                width: "100%",
-                height: "55px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <h2 style={{ fontSize: "15px" }}>{book.title}</h2>
+          <div key={book._id} className="card    ">
+            <div className=" ">
+              {" "}
+              <img className=" card-img  " src={book.cover} alt={book.title} />
             </div>
 
-            <div
-              style={{
-                textAlign: "center",
-                padding: "10px",
-                border: "1px solid #b5b5b5c6",
-                borderRadius: "5px",
-                margin: "10px",
-                fontSize: "12px",
-              }}
-            >
+            <div className=" font-bold">
+              <h2>{book.title}</h2>
+            </div>
+
+            <div className=" contentCard p-2">
               <p>Autor: {book.author}</p>
               <p>ISBN: {book.ISBN}</p>
               <p>Publication Year: {book.publication_year}</p>
               <p>{book.created_at}</p>
               <p>{book.updated_at}</p>
               <p> Number of Page: {book.page}</p>
-
-              <button
-                style={{
-                  gap: "20px",
-                  color: "#f8503dc6",
-                  backgroundColor: "#c8c7c78b;",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  padding: "5px 10px",
-                  margin: "5px",
-                }}
-                onClick={() => handleDelete(book._id)}
-              >
-                Deleted
-              </button>
-              <button
-                style={{
-                  gap: "20px",
-                  color: "#2860edd0",
-                  backgroundColor: "#c8c7c78b;",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  padding: "5px 10px",
-                  margin: "5px",
-                }}
-              >
-                Update
-              </button>
+              <div className="btns">
+                {" "}
+                <button
+                  className=" btn btnRed"
+                  onClick={() => handleDelete(book._id)}
+                >
+                  Deleted
+                </button>
+                <button className="btn btnGreen">
+                  <Link to={`/update/${book._id}`}>Update</Link>
+                </button>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <button
-        style={{
-          border: "none",
-          textDecoration: "none",
-          backgroundColor: "#caf5c0b9",
-          color: "#000",
-          padding: "5px 10px",
-          borderRadius: "5px",
-        }}
-      >
-        <Link to="/add" style={{ textDecoration: "none", color: "#888" }}>
-          Add new Book
-        </Link>
+      <button className="  px-5 rounded-md  py-3 text-green-700 bg-slate-900 fixed bottom-0 font-bold">
+        <Link to="/add">Add new Book</Link>
       </button>
     </div>
   );
