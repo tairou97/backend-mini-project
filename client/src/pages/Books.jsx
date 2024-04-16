@@ -37,7 +37,7 @@ const Books = () => {
         {books.map((book) => (
           <div key={book._id} className="card  ">
             <div className=" card-img">
-              <img style={{}} src={book.cover} alt={book.title} />
+              <img src={book.cover} alt={book.title} />
             </div>
 
             <div className=" font-bold text-green-700">
@@ -52,7 +52,6 @@ const Books = () => {
               <p>{book.updated_at}</p>
               <p> Number of Page: {book.page}</p>
               <div className="btns">
-                {" "}
                 <button
                   className=" btn btnRed"
                   onClick={() => handleDelete(book._id)}
