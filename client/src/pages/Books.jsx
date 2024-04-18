@@ -30,9 +30,6 @@ const Books = () => {
 
   return (
     <div className="">
-      <h1 className="text-green-700 flex justify-center z-10  font-bold font-sans text-3xl fixed w-full bg-slate-900 px-5 py-5 top-0">
-        Book Shop
-      </h1>
       <div className="books-card p-4 relative top-28 z-0 ">
         {books.map((book) => (
           <div key={book._id} className="card  ">
