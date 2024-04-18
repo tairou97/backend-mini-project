@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import booksRoutes from "./routes/booksRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ async function dataBase() {
 dataBase().catch((error) => console.log(error));
 
 app.use("/books", booksRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log("Connected Backend on Port:", PORT);
