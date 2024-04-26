@@ -15,22 +15,19 @@ const Login = () => {
     try {
       await axios.post("http://localhost:9000/user", data);
       navigate("/");
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
-    <div className="text-gray-700 flex h-screen justify-center items-center">
-      {" "}
-      <form
-        onSubmit={loginUser}
-        className="flex  text-gray-500 gap-4  flex-col"
-      >
+    <div className="text-gray-700 box flex h-screen justify-center items-center">
+      <form onSubmit={loginUser} className="flex  gap-4  flex-col">
         <div>
-          {" "}
-          <label htmlFor="" className="py-6 px-10 bg-green-700 ">
+          <label htmlFor="" className="py-6 px-10 bg-green-700  text-white">
             Email
           </label>
           <input
-            className="p-5"
+            className=" py-5 pl-2 pr-2 outline-none w-80"
             type="email"
             placeholder="enter your email...."
             onChange={(e) => setData({ ...data, email: e.target.value })}
@@ -38,11 +35,11 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="" className="py-6 px-6 bg-green-700">
+          <label htmlFor="" className="py-6 px-6 bg-green-700 text-white">
             Password
           </label>
           <input
-            className="p-5  "
+            className=" py-5 pl-2 pr-2 outline-none w-80 "
             type="password"
             placeholder="enter your password...."
             onChange={(e) => setData({ ...data, password: e.target.value })}
@@ -50,7 +47,7 @@ const Login = () => {
           />
         </div>
 
-        <button type="submit" className="p-6 bg-green-700">
+        <button type="submit" className="p-5 bg-green-700 text-white font-bold">
           Login
         </button>
       </form>

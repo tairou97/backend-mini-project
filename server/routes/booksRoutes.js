@@ -63,7 +63,7 @@ router
       res.status(404).send("Doesn't exist");
     }
   })
-  .put("/:id", async (req, res) => {
+  .patch("/:id", async (req, res) => {
     // Logik zum Aktualisieren von Buchinformationen
     try {
       const booksID = req.params.id;

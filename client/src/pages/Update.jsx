@@ -26,7 +26,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:9000/books/" + booksID, books);
+      await axios.patch("http://localhost:9000/books/" + booksID, books);
 
       navigate("/");
     } catch (error) {

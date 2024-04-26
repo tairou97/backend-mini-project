@@ -2,7 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import Img from "../img/Img";
+var sectionStyle = {
+  width: "100%",
+  height: "400px",
+  backgroundImage: "url(" + { Img } + ")",
+};
 const Register = () => {
   const [data, setData] = useState({
     name: "",
@@ -14,49 +19,51 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:9000/user", data);
-
       navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div className="text-gray-700 flex h-screen justify-center items-center">
-      <form
-        onSubmit={registerUser}
-        className="flex bg-green-700 text-gray-50   flex-col"
-      >
+    <div className="text-gray-700 box flex h-screen justify-center items-center">
+      <form onSubmit={registerUser} className="flex  gap-4  flex-col">
         <div>
-          <label htmlFor="name" className="p-6">
-            Name
-          </label>
+          <label className="py-6 px-8 bg-green-700 text-white">Name</label>
           <input
             type="text "
             id="name"
-            className="p-5"
+            className="py-5 pl-3 pr-2 outline-none  w-80"
             placeholder="enter your name...."
             onChange={(e) => setData({ ...data, name: e.target.value })}
             value={data.name}
           />
         </div>
+        <div className="   ">
+          <label className="py-6 px-9 bg-green-700 text-white">Email</label>
+          <input
+            type="email"
+            className="py-5 pl-2 pr-3 outline-none w-80"
+            placeholder="enter your email...."
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+            value={data.email}
+          />
+        </div>
+        <div>
+          <label htmlFor="" className="py-6 px-5 bg-green-700 text-white">
+            Password
+          </label>
+          <input
+            type="password"
+            className="py-5 pl-2 pr-2 outline-none  w-80"
+            placeholder="enter your password...."
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+            value={data.password}
+          />
+        </div>
 
-        <label className="p-3">Email</label>
-        <input
-          type="email"
-          placeholder="enter your email...."
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          value={data.email}
-        />
-        <label htmlFor="" className="p-3">
-          Password
-        </label>
-        <input
-          type="password"
-          placeholder="enter your password...."
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-          value={data.password}
-        />
-        <button type="submit">Register</button>
+        <button type="submit" className="p-5 bg-green-700 text-white font-bold">
+          Register
+        </button>
       </form>
     </div>
   );

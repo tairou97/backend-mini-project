@@ -37,7 +37,7 @@ const Books = () => {
               <img src={book.cover} alt={book.title} />
             </div>
 
-            <div className=" font-bold text-green-700">
+            <div className="  h2 font-bold">
               <h2>{book.title}</h2>
             </div>
 
