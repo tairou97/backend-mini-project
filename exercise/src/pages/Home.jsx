@@ -83,29 +83,37 @@ const data = [
     description: "Fusce in est eget arcu blandit fringilla ac nec tortor.",
   },
 ];
+const counter = 0;
+function main() {
+  for (let i = 0; i < counter; i++) {
+    return;
+  }
+}
+main();
 
 const Home = () => {
   return (
     <>
-      {" "}
       <Banner />
       <h1>AKTUELLES</h1>
       <div className="container ">
         {data.map((d) => (
-          <Link to={`/bookdetail/${d.id}`}>
+          <Link key={d.id} to={`/bookdetail/${d.id}`}>
             <div className="card-product" key={d.id}>
               <img src={d.img} alt={d.title} />
               <h2>{d.title}</h2>
               <div className="card-content">
                 <h4>{d.header}</h4>
                 <p>{d.description}</p>
-                <p>Price {d.price}</p>
+                <p>
+                  Price <span className="text-red-600">{d.price}</span>
+                </p>
               </div>
             </div>
           </Link>
         ))}
       </div>
-      <div className="bottom bg-blue-200  ">
+      <div className="bottom ">
         <Bottom_right />
         <Bottomleft />
       </div>
