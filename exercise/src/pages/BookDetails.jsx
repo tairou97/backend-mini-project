@@ -105,8 +105,7 @@ const BookDetails = () => {
   console.log(filteredData);
 
   return (
-    <>
-      {" "}
+    <div className="bookdetail-container">
       <div className="bookdetail">
         <div className="bookdetail-img">
           <img src={filteredData[0].img} alt="" />
@@ -119,7 +118,7 @@ const BookDetails = () => {
         </div>
       </div>
       <Basket />
-    </>
+    </div>
   );
 };
 

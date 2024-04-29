@@ -1,5 +1,5 @@
 import React from "react";
-
+import Search from "../components/extras/Search";
 const NavBar = () => {
   const nav = [
     { id: 1, to: "/", name: "Home" },
@@ -7,10 +7,12 @@ const NavBar = () => {
     { id: 3, to: "/Projects", name: "Projects" },
     { id: 4, to: "/Register", name: "Register" },
     { id: 5, to: "/Login", name: "Login" },
+    { id: 6, to: "/Logout", name: "Log Out" },
   ];
   return (
     <div>
-      <nav className=" nav font-bold text-5xl text-gray-100 fixed bg-green-600 w-full p-10 z-10">
+      <nav className=" nav ">
+        <Search />
         {nav.map((item) => (
           <a key={item.id} href={item.to}>
             {item.name}

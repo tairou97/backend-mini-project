@@ -3,9 +3,9 @@ import imgBig from "../../assets/big.png";
 
 const Banner = () => {
   const Big = [
-    { img: imgBig, title: "Angebote" },
-    { img: imgBig, title: "Black Friday" },
-    { img: imgBig, title: "spezialangebot für kurze zeit" },
+    { id: 1, img: imgBig, title: "Angebote" },
+    { id: 2, img: imgBig, title: "Black Friday" },
+    { id: 3, img: imgBig, title: "spezialangebot für kurze zeit" },
   ];
   return (
     <div
